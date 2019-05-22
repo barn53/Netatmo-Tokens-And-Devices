@@ -119,8 +119,3 @@ def getDevices(access_token):
         devices.append(d)
 
         return devices
-
-if __name__ == '__main__':
-    (access_token, refresh_token) = getTokens()
-    devices = getDevices(access_token)
-
