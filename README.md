@@ -9,7 +9,7 @@ Python scripts to retrieve authorization tokens and device/module IDs from netat
 https://dev.netatmo.com/myaccount/createanapp
    - You do not need to add a redirect URI, nor a webhook URL
 
-3) File rename_to_secrets.py
+3) File ```rename_to_secrets.py```
    - Copy the file ```rename_to_secrets.py``` to ```secrets.py```
    - In file ```secrets.py```:
      - Replace the values for email and password according to your account
