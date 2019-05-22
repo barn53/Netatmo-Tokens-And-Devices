@@ -5,11 +5,19 @@ import secrets
 
 url_token = "https://api.netatmo.com/oauth2/token"
 url_getstationsdata = "https://api.netatmo.com/api/getstationsdata"
+url_getmeasure = "https://api.netatmo.com/api/getmeasure"
 
 headers = {
     "Content-Type": "application/x-www-form-urlencoded",
     "charset": "UTF-8"
 }
+
+def dateTimeToEpoch(dt):
+    return int ((dt - datetime.datetime(1970,1,1)).total_seconds())
+
+def nowInEpoch():
+    return int ((datetime.datetime.now() - datetime.datetime(1970,1,1)).total_seconds())
+
 
 def getTokens() :
 
@@ -35,6 +43,25 @@ def getTokens() :
         print("Refresh Token: " + refresh_token)
 
     return (access_token, refresh_token)
+
+def refreshToken(refresh_token) :
+
+    post_refresh = {
+        "refresh_token": refresh_token,
+        "client_id": secrets.client_id,
+        "client_secret": secrets.client_secret,
+        "grant_type": "refresh_token"
+    }
+
+    access_token = ""
+    r = requests.post(url_token, data=post_refresh, headers=headers)
+    if r.status_code == 200 :
+        #print(r.content)
+        j = json.loads(r.content)
+        access_token = j["access_token"]
+        print("New Access Token:  " + access_token)
+
+    return access_token
 
 def getDevices(access_token):
 
