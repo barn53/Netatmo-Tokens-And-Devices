@@ -44,6 +44,7 @@ def getTokens() :
 
     return (access_token, refresh_token)
 
+
 def refreshToken(refresh_token) :
 
     post_refresh = {
@@ -62,6 +63,7 @@ def refreshToken(refresh_token) :
         print("New Access Token:  " + access_token)
 
     return access_token
+
 
 def getDevices(access_token):
 
@@ -115,7 +117,6 @@ def getDevices(access_token):
                 "types": types,
                 "modules": modules
             }
-
-        devices.append(d)
+            devices.append(d)
 
         return devices
