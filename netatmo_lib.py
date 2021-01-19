@@ -34,7 +34,7 @@ def getTokens() :
     refresh_token = ""
     r = requests.post(url_token, data=post_token, headers=headers)
     if r.status_code == 200 :
-        #print(r.content)
+        # print(r.content)
         j = json.loads(r.content)
         access_token = j["access_token"]
         refresh_token = j["refresh_token"]

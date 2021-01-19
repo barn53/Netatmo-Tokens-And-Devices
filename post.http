@@ -1,0 +1,36 @@
+###  Generate tokens
+POST https://api.netatmo.com/oauth2/token HTTP/1.1
+content-type: application/x-www-form-urlencoded; charset=utf-8
+
+client_id=5f69d1f550deee04ed63c0ed&client_secret=72Ybu2jB9guKr7QSHg1o9Ocy6eTIZpzZuNz4I&grant_type=password&username=gerdmuller.de@gmail.com&password=Virago535N&scope=read_station
+
+### Refresh token
+POST https://api.netatmo.com/oauth2/token HTTP/1.1
+content-type: application/x-www-form-urlencoded; charset=utf-8
+
+refresh_token=58c92b16ac34a58bd88b98a4|e9612e8878bac1403bc5dc618c9d2cdf&client_id=5f69d1f550deee04ed63c0ed&client_secret=72Ybu2jB9guKr7QSHg1o9Ocy6eTIZpzZuNz4I&grant_type=refresh_token
+
+### Get measure
+POST https://api.netatmo.com/api/getmeasure HTTP/1.1
+content-type: application/x-www-form-urlencoded; charset=utf-8
+
+access_token=58c92b16ac34a58bd88b98a4|667f2bbc89e6a72b7a49e39dfc14dfcb&device_id=70:ee:50:28:c8:d2&module_id=70:ee:50:28:c8:d2&scale=max&type=temperature&limit=10&optimize=false&real_time=false&date_begin=1600700000&date_end=2000000000
+
+### Get stationsdata
+POST https://api.netatmo.com/api/getstationsdata HTTP/1.1
+content-type: application/x-www-form-urlencoded; charset=utf-8
+
+access_token=58c92b16ac34a58bd88b98a4|667f2bbc89e6a72b7a49e39dfc14dfcb&device_id=70:ee:50:28:c8:d2&get_favorites=true
+
+### Monthly rain in 2019
+POST https://api.netatmo.com/api/getmeasure HTTP/1.1
+content-type: application/x-www-form-urlencoded; charset=utf-8
+
+access_token=58c92b16ac34a58bd88b98a4|667f2bbc89e6a72b7a49e39dfc14dfcb&device_id=70:ee:50:28:c8:d2&module_id=05:00:00:03:a6:fe&scale=1month&type=sum_rain&limit=1024&optimize=false&real_time=false&date_begin=1546297200&date_end=1577833199&real_time=true
+
+### Rain from 23.9.2020
+POST https://api.netatmo.com/api/getmeasure HTTP/1.1
+content-type: application/x-www-form-urlencoded; charset=utf-8
+
+access_token=58c92b16ac34a58bd88b98a4|ead72b195f9f89e87e453419b362a98e&device_id=70:ee:50:28:c8:d2&module_id=05:00:00:03:a6:fe&scale=1hour&type=sum_rain&limit=1024&optimize=false&real_time=false&date_begin=1600812000&real_time=true
+
